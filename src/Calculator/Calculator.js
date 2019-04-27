@@ -1,6 +1,8 @@
 import React, { useReducer } from 'react';
 import { makeStyles } from '@material-ui/styles';
 
+import CalculatorSegment from '../Components/CalculatorSegment';
+
 const reduxAction = {
   changeOperator: 'CHANGE_OPERATOR',
   changeValue: 'CHANGE_VALUE'
@@ -24,7 +26,6 @@ const Calculator = props => {
 };
 
 const reducer = (state, action) => {
-  console.log(action.type === reduxAction.changeValue);
   switch (action.type) {
     case reduxAction.changeValue:
       let newValues = state.values;
@@ -46,23 +47,12 @@ const InputBox = props => {
   };
 
   const styles = makeStyles({
-    inputBox: {
-      margin: '10px',
-      padding: '10px',
-      height: '150px',
-      width: '150px',
-      backgroundColor: '#6AE',
-      borderStyle: 'solid',
-      borderWidth: '1px',
-      display: 'flex',
-      alignItems: 'center'
-    },
     inputField: {
       width: '50%'
     }
   });
   return (
-    <div className={styles().inputBox}>
+    <CalculatorSegment background="#6AE">
       Value {props.index}:{' '}
       <input
         type="text"
@@ -70,7 +60,7 @@ const InputBox = props => {
         value={props.value}
         onChange={onValueChange}
       />
-    </div>
+    </CalculatorSegment>
   );
 };
 
