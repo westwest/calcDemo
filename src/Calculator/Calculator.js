@@ -1,15 +1,11 @@
 import React, { useReducer } from 'react';
 import { makeStyles } from '@material-ui/styles';
 
+import { reduxActions, reducer as calcReducer } from './duck.js';
 import CalculatorSegment from '../Components/CalculatorSegment';
 
-const reduxAction = {
-  changeOperator: 'CHANGE_OPERATOR',
-  changeValue: 'CHANGE_VALUE'
-};
-
 const Calculator = props => {
-  const [state, dispatch] = useReducer(reducer, { values: [0, 0, 0] });
+  const [state, dispatch] = useReducer(calcReducer, { values: [0, 0, 0] });
 
   const styles = makeStyles({
     calculator: {
@@ -25,22 +21,10 @@ const Calculator = props => {
   );
 };
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case reduxAction.changeValue:
-      let newValues = state.values;
-      if (!isNaN(action.value) || action.value === '')
-        newValues[action.index] = action.value;
-      return { values: newValues };
-    default:
-      throw new Error();
-  }
-};
-
 const InputBox = props => {
   const onValueChange = e => {
     props.dispatch({
-      type: reduxAction.changeValue,
+      type: reduxActions.changeValue,
       index: props.index,
       value: e.target.value
     });
