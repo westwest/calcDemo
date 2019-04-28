@@ -40,7 +40,7 @@ const ResultSegment = props => {
 
   const styles = makeStyles({
     computeModule: {
-      justifyContent: 'flex-start'
+      alignSelf: 'center'
     }
   });
   return (

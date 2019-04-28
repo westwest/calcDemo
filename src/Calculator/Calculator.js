@@ -10,7 +10,9 @@ const Calculator = props => {
 
   const styles = makeStyles({
     calculator: {
-      display: 'flex'
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center'
     }
   });
   return (

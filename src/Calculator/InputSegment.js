@@ -14,13 +14,16 @@ const InputSegment = props => {
   };
 
   const styles = makeStyles({
+    segment: {
+      textAlign: 'center'
+    },
     inputField: {
-      width: '50%'
+      width: '40%'
     }
   });
   return (
     <CalculatorSegment background="#6AE">
-      <div>
+      <div className={styles().segment}>
         Value {props.index}:{' '}
         <input
           type="text"
