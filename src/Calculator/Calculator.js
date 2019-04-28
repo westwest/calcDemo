@@ -1,8 +1,9 @@
 import React, { useReducer } from 'react';
 import { makeStyles } from '@material-ui/styles';
 
-import { reduxActions, reducer as calcReducer } from './duck.js';
-import CalculatorSegment from '../Components/CalculatorSegment';
+import { reducer as calcReducer } from './duck.js';
+import InputSegment from './InputSegment.js';
+import ResultSegment from './ResultSegment.js';
 
 const Calculator = props => {
   const [state, dispatch] = useReducer(calcReducer, { values: [0, 0, 0] });
@@ -15,36 +16,15 @@ const Calculator = props => {
   return (
     <div className={styles().calculator}>
       {state.values.map((value, index) => (
-        <InputBox key={index} index={index} value={value} dispatch={dispatch} />
+        <InputSegment
+          key={index}
+          index={index}
+          value={value}
+          dispatch={dispatch}
+        />
       ))}
+      <ResultSegment values={state.values} />
     </div>
-  );
-};
-
-const InputBox = props => {
-  const onValueChange = e => {
-    props.dispatch({
-      type: reduxActions.changeValue,
-      index: props.index,
-      value: e.target.value
-    });
-  };
-
-  const styles = makeStyles({
-    inputField: {
-      width: '50%'
-    }
-  });
-  return (
-    <CalculatorSegment background="#6AE">
-      Value {props.index}:{' '}
-      <input
-        type="text"
-        className={styles().inputField}
-        value={props.value}
-        onChange={onValueChange}
-      />
-    </CalculatorSegment>
   );
 };
 

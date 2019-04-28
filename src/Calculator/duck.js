@@ -10,6 +10,8 @@ export const reducer = (state, action) => {
       if (!isNaN(action.value) || action.value === '')
         newValues[action.index] = action.value;
       return { values: newValues };
+    case reduxActions.changeOperator:
+      return { operator: action.operator };
     default:
       throw new Error();
   }

@@ -12,7 +12,8 @@ const CalculatorSegment = props => {
       borderStyle: 'solid',
       borderWidth: '1px',
       display: 'flex',
-      alignItems: 'center'
+      flexDirection: 'column',
+      justifyContent: 'center'
     },
     inputField: {
       width: '50%'
