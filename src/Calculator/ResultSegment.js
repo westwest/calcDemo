@@ -38,28 +38,34 @@ const ResultSegment = props => {
       operator: e.target.value
     });
 
-  const styles = makeStyles({});
+  const styles = makeStyles({
+    computeModule: {
+      justifyContent: 'flex-start'
+    }
+  });
   return (
     <CalculatorSegment background="#FAA">
-      <div>
-        <input
-          type="radio"
-          value={operators.sum}
-          checked={state.operator === operators.sum}
-          onChange={onValueChange}
-        />{' '}
-        Sum
+      <div className={styles().computeModule}>
+        <div>
+          <input
+            type="radio"
+            value={operators.sum}
+            checked={state.operator === operators.sum}
+            onChange={onValueChange}
+          />{' '}
+          Sum
+        </div>
+        <div>
+          <input
+            type="radio"
+            value={operators.multiply}
+            checked={state.operator === operators.multiply}
+            onChange={onValueChange}
+          />{' '}
+          Multiply
+        </div>
+        <div>Result: {result}</div>
       </div>
-      <div>
-        <input
-          type="radio"
-          value={operators.multiply}
-          checked={state.operator === operators.multiply}
-          onChange={onValueChange}
-        />{' '}
-        Multiply
-      </div>
-      <div>Result: {result}</div>
     </CalculatorSegment>
   );
 };
