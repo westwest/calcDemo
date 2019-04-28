@@ -24,7 +24,7 @@ const InputSegment = props => {
   return (
     <CalculatorSegment background="#6AE">
       <div className={styles().segment}>
-        Value {props.index}:{' '}
+        Value {props.index + 1}:{' '}
         <input
           type="text"
           className={styles().inputField}
