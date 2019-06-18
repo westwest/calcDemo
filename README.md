@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Technology Choices
 
-React was chosen as it is the most popular web-development javascript framework, is used by Advisa and my primary tool in my professional work today. It also happens to be the best framework and allows a quick pace.
+React was chosen as it is the most popular web-development javascript framework, and as it is my primary tool in my professional work today. It also happens to be the best framework and allows a quick pace.
 
-I decided to implement the solution using stateless components and hooks as it is the most modern way and towards the direction the react team seems to be taking (released in version 16.8.0). It also allows for very elegant and clean code and eliminates the need to manage component lifecycle. It demonstrates how I currently prefer to write react code.
+I decided to implement the solution using stateless components and hooks as it is the most modern way and towards the direction the react team seems to be taking (released in version 16.8.0). It also allows for very elegant and clean code and eliminates the need to manage component lifecycle. It demonstrates how I currently (as of 2019) prefer to write react code.
 
 I did not make use of a 3rd party state management library, but I did implement state management via hooks in a similar fashion to redux; using actions and reducers to update store and in turn triggering UI updates. I relied on the redux pattern as it is the most popular solution for state management, and is highly scalable. For an app this size it is not really needed, but I wanted to demonstrate a redux dataflow.
 
